@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper, margin = 1in]{geometry}
+
+\usepackage{graphicx}
+
+% for \toprule \midrule \bottomrule
+\usepackage{booktabs}
+
+% needed for \begin{split} equations
+\usepackage{amsmath}
+
+% code syntax highlighting
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.4,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{%frame=tb,
+  language = R,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+ % keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4,
+  otherkeywords={},
+  morekeywords={}
+}
+\usepackage[super]{nth}
+
+% my gray 
+\usepackage[dvipsnames]{xcolor}
+\definecolor{mygray}{gray}{0.45}
+
+% a tight underline function
+\newcommand{\tightline}[1]{\underline{\smash{#1}}}
+
+% a neat  divider, \Hbar draws a line
+\newcommand{\Hbar}{\noindent\makebox[\textwidth]{
+		\textcolor{mygray}{\rule{\textwidth}{0.5pt}}}
+}
+
+% table stuff
+\usepackage{multicol}
+\usepackage{array}
+\newcolumntype{L}{>{\centering\arraybackslash}m{.45\textwidth}}
+
+\usepackage{amsfonts}
+
+\usepackage{dirtytalk}
+
+% links and urls
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=Blue,
+	filecolor=black,      
+	urlcolor=Blue,
+}
+
+% list spacing
+\usepackage{enumitem} 
+\setlist[itemize]{itemsep=.055ex, parsep=.0005cm, itemindent=.01cm}
+\renewcommand\labelitemii{\textperiodcentered}  
+
+% bullet point format
+\usepackage{amssymb}
+\renewcommand{\labelitemi}{\textperiodcentered}
+
+% header with bar and name, footer with page number
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{C. M. Donegan}
+\rhead{}
+\rfoot{}
+\cfoot{Page \thepage \hspace{1pt} of \pageref*{LastPage}}
+
+\fancypagestyle{firstPage}{
+	%\fancyfoot{ } %{\textcolor{mygray}{C. M. Donegan  (Feb. 20, 2019)}}
+	%\fancyfoot[R]{ }
+	\cfoot{ }
+	\renewcommand{\headrulewidth}{0pt}
+	\setlength{\headheight}{0pt}
+}
+
+% move the title up towards the top of the page
+\usepackage[tiny]{titlesec}
+\usepackage{titling}
+\setlength{\droptitle}{-5em}  
