@@ -14,9 +14,7 @@ data {
   matrix[n, k] x;
   //matrix of eigenvectors for spatial filtering
   matrix[n, n_ev] ev;
-  real<lower=0> hyper_slab_scale;
-  real<lower=0> hyper_spike_scale;
-  // scale parameters for the two normal distributions
+  // scale parameters for the two normal distributions, spike at 0 and a wider slab
   real spike_scale;
   real slab_scale;
 }
@@ -44,6 +42,8 @@ parameters {
   //intercept and standard deviation of the model
   real alpha;
   real<lower = 0> sigma;
+  // real<lower=0> spike_scale;
+  // real<lower=0> slab_scale;
 }
 
 transformed parameters {
@@ -55,6 +55,8 @@ transformed parameters {
 
 model {
   w ~ beta(shape1, shape2);
+  // shape1 ~ gamma(3, 3);
+  // shape2 ~ gamma(3, 3);
   beta_ev ~ spikeSlab(spike_scale, slab_scale, w);
   beta ~ normal(0, 10);
   alpha ~ normal(0, 10);
