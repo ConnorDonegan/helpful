@@ -55,13 +55,10 @@ transformed parameters {
 
 model {
   w ~ beta(shape1, shape2);
-  // shape1 ~ gamma(3, 3);
-  // shape2 ~ gamma(3, 3);
   beta_ev ~ spikeSlab(spike_scale, slab_scale, w);
   beta ~ normal(0, 10);
   alpha ~ normal(0, 10);
   sigma ~ cauchy(0, 2);
-  // Log likelihood
   target +=  normal_lpdf(y | fitted, sigma);
 }
 
